@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-scroll";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const data = [
@@ -36,7 +36,9 @@ const Navbar = () => {
               key={index}
               className="px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200"
             >
-              {item.link}
+              <Link to={item.link} smooth duration={500}>
+                {item.link}
+              </Link>
             </li>
           );
         })}
@@ -60,7 +62,9 @@ const Navbar = () => {
                 key={index}
                 className="px-4 cursor-pointer capitalize py-6 text-4xl"
               >
-                {item.link}
+                <Link onClick={()=>setNav(!nav)} to={item.link} smooth duration={500}>
+                  {item.link}
+                </Link>
               </li>
             );
           })}
